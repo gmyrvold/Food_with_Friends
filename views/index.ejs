@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Recipe Index</title>
+</head>
+<body>
+    <h1>Recipe Index Page</h1>
+    
+    <ul>
+    <% for (let i =0; i < recipes.length; i++) { %>
+        
+            <li>
+                <a href="/recipes/<%=recipes[i].id%>"><%=recipes[i].name%></a>
+            </li>
+        
+        <% } %>
+    </ul>
+</body>
+</html>

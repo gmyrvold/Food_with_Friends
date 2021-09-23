@@ -3,7 +3,8 @@ const {Schema , model} = mongoose
 
 const productsSchema = new Schema({
     name: {type: String,required: true},
-    description: {type: String},
+    ingredients: {type: String},
+    directions: {type: String},
     img: {type: String},
     link: {type: String},
     qty: {type: Number, min: 0}
