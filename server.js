@@ -61,6 +61,32 @@ app.delete('/recipes/:id', (req,res) => {
     })
 })
 
+app.get('/recipes/:id/edit',(req,res) => {
+    Recipe.findById(req.params.id, (error, foundRecipe) => {
+        if (error) {
+          console.log(error)
+          res.send(error)
+        } else {
+          res.render('edit.ejs', {
+            recipe: foundRecipe,
+          })
+        }
+      })
+    })
+
+app.put('/recipes/:id',(req,res) => {
+    Recipe.findByIdAndUpdate(req.params.id, req.body,
+        {new: true,},
+        (error, updatedRecipe) => {
+        if (error) {
+            console.log(error)
+            res.send(error)
+            } else {
+            res.redirect('/recipes')
+            }
+        })
+    })
+
 app.get('/seed', async (req, res) => {
     const newRecipes =
         [{
