@@ -35,6 +35,16 @@ app.get('/recipes/:id', (req,res)=> {
       })
     })
 
+app.post('/recipes', (req,res) => {
+    Recipe.create(req.body, (error, createdProduct) => {
+        if (error){
+            console.log(error)
+            res.send(error)
+        } else {
+            res.redirect('/recipes')
+        }
+        })
+    })
 app.get('/seed', async (req, res) => {
     const newRecipes =
         [{
