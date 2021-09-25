@@ -20,6 +20,7 @@ db.on('disconnected', () => { console.log('mongo disconnected')})
 
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
+app.use(express.static('public'))
 
 app.get('/recipes', (req,res) => {
     Recipe.find({}, (err, allRecipes) => {
