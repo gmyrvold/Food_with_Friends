@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const Recipe = require('./models/recipes')
+const methodOverride = require('method-override')
 
 const mongoose = require('mongoose')
 const mongoURI = "mongodb://127.0.0.1:27017/basiccrud"
@@ -16,6 +17,9 @@ mongoose.connect(mongoURI, {
 db.on('error', (err) => { console.log('ERROR: ', err) })
 db.on('connected', () => { console.log('mongo connected') })
 db.on('disconnected', () => { console.log('mongo disconnected')})
+
+app.use(express.urlencoded({ extended: true }))
+app.use(methodOverride('_method'))
 
 app.get('/recipes', (req,res) => {
     Recipe.find({}, (err, allRecipes) => {
@@ -36,15 +40,27 @@ app.get('/recipes/:id', (req,res)=> {
     })
 
 app.post('/recipes', (req,res) => {
-    Recipe.create(req.body, (error, createdProduct) => {
+    Recipe.create(req.body, (error, createdRecipe) => {
         if (error){
             console.log(error)
             res.send(error)
         } else {
             res.redirect('/recipes')
         }
-        })
     })
+})
+
+app.delete('/recipes/:id', (req,res) => {
+    Recipe.findByIdAndDelete(req.params.id, (error, deletedRecipe) => {
+        if (error) {
+            console.log(error)
+            res.send(error)
+        } else {
+            res.redirect('/recipes')
+        }
+    })
+})
+
 app.get('/seed', async (req, res) => {
     const newRecipes =
         [{
