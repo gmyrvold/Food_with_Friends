@@ -7,7 +7,8 @@ const productsSchema = new Schema({
     directions: {type: String},
     img: {type: String},
     link: {type: String},
-    qty: {type: Number, min: 0}
+    qty: {type: Number, min: 0},
+    publicRecipe: {type: Boolean, default: false}
 })
 
 const Recipe = model('Recipe', productsSchema)

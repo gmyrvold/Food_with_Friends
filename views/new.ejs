@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<head>
-    <title>Add a New Recipe</title>
-</head>
-<body>
+<%- include('./partials/header.ejs') %>
     <h1>Add a New Recipe</h1>
 
     <form action="/recipes" method="POST">
@@ -15,5 +11,4 @@
 
         <input type="submit" value="Add Recipe">
     </form>
-</body>
-</html>
+<%- include ('./partials/footer.ejs') %>

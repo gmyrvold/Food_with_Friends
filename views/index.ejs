@@ -1,20 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Recipe Index</title>
-</head>
-<body>
-    <h1>Recipe Index Page</h1>
+<%- include('./partials/header.ejs') %>
+    <h1>Food with Friends!</h1>
+    <h3>Look what's in your pantry!</h3>
     
     <ul>
     <% for (let i =0; i < recipes.length; i++) { %>
         
             <li>
-                <a href="/recipes/<%=recipes[i].id%>"><%=recipes[i].name%></a>
+                <button><a href="/recipes/<%=recipes[i].id%>"><%=recipes[i].name%></a></button>
             </li>
         
         <% } %>
     </ul>
 <a href="/recipes/new">Add a New Recipe</a>
-</body>
-</html>
+<a href="/recipes/public">Visit the Public Pantry</a>
+<%- include ('./partials/footer.ejs') %>

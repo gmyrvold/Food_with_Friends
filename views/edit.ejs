@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<head>
-    <title>Edit recipe</title>
-</head>
-<body>
+<%- include('./partials/header.ejs') %>
     <h1>Edit </h1>
 
     <form action="/recipes/<%=recipe.id%>?_method=PUT" method="POST">
@@ -15,5 +11,4 @@
 
         <input type="submit" value="Edit Recipe">
     </form>
-</body>
-</html>
+<%- include ('./partials/footer.ejs') %>

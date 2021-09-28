@@ -30,6 +30,30 @@ app.get('/recipes', (req,res) => {
       })
     })
 
+app.get('/recipes/public', (req,res) => {
+    //console.log(req.body)
+    Recipe.find({publicRecipe: true}, (error, sharedRecipe) => {
+        if (error){
+            console.log(error)
+            res.send(error)
+        } else {
+            console.log(sharedRecipe)
+            res.render('public.ejs', {recipes: sharedRecipe})
+        }
+    })
+})
+app.put('/recipes/:id/public', (req,res) => {
+    Recipe.findById(req.params.id, (error, sharedRecipe) => {
+        if (error){
+            res.send(error)
+        } else {
+            sharedRecipe.publicRecipe=true
+            sharedRecipe.save()
+            res.redirect('/recipes/public')
+        } 
+    })
+})
+
 app.get('/recipes/new', (req,res) => {
     res.render('new.ejs')
 })
@@ -94,18 +118,27 @@ app.get('/seed', async (req, res) => {
             name: 'Tomato Soup',
             ingredients: 'Tomatoes',
             directions: 'Cook tomatoes',
-            img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZ9Q_hovRHT0e7zYwqQ2qOFAznR2AHH7VMTg&usqp=CAU',
+            img: '/images/TomatoSoup.jpeg',
             link: 'https://www.youtube.com/watch?v=MkULY-TuRz0',
-            qty: 5
+            qty: 5,
+            publicRecipe: true
+        },{
+            name: 'Chicken Noodle Soup',
+            ingredients: 'chicken, noodle, chicken stock, carrots, celery',
+            directions: 'add vegetables until soft, add broth and cook with chicken',
+            img: '/images/ChickenNoodleSoup.jpeg',
+            link: 'https://www.youtube.com/watch?v=MkULY-TuRz0',
+            qty: 5,
+            publicRecipe: false
         }]
-      
+    console.log(newRecipes)
     try {
         const seedItems = await Recipe.create(newRecipes)
         res.send(seedItems)
     } catch (err) {
         res.send(err.message)
     }
-    res.redirect('/recipes')
+    //res.redirect('/recipes')
     })
 
 app.listen(3000, () => {

@@ -1,0 +1,16 @@
+body {
+    background-color: lavender;
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+}
+ul {
+    list-style: none;
+}
+img {
+    height: 250px;
+    border: solid;
+    border-radius: 20px;
+}
+button {
+    border-radius: 20px;
+}

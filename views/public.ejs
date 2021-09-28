@@ -1,0 +1,14 @@
+<%- include('./partials/header.ejs') %>
+
+<h1>Food with Friends!</h1>
+<h3>Make new friends and try new things!</h3>
+
+<% for (let i =0; i < recipes.length; i++) { %>
+        
+    <li>
+        <button><a href="/recipes/<%=recipes[i].id%>"><%=recipes[i].name%></a></button>
+    </li>
+
+<% } %>
+
+<%- include ('./partials/footer.ejs') %>
