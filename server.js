@@ -56,10 +56,11 @@ app.get('/destroy-session', (req, res) => {
 const recipeController = require('./controllers/recipeController')
 app.use('/recipes', recipeController)
   
-const userController = require('./controllers/userController')
+const userController = require('./controllers/usercontroller')
 app.use('/users', userController)
 
 app.listen(process.env.PORT, () => {
     console.log(`Server is listening on PORT: ${process.env.PORT}`)
   })
 
+//file change
