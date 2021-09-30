@@ -12,18 +12,9 @@
     <li>Reference Link: <a href=""><%=recipe.link%></a></li>
 </ul>
 <img src="<%=recipe.img%>">
-
 <footer>
-    
-    <button><a href="/recipes/<%=recipe.id%>/edit">Edit this recipe</a></button>
-
-    <form action="/recipes/<%= recipe.id%>?_method=DELETE" method="POST">
-        <input type="submit" value="Delete">
-    </form>
-    
-    <form action="/recipes/<%=recipe.id%>/public?_method=PUT" method="POST">
-        <input type="hidden" name="name" value="<%=recipe.name%>">
-        <input type="submit" value="Share">
-    </form>
+    Tried this recipe out? Tell us your thoughts!
+    <input type="text" value="comment here">
+    <button class="post"> Post </button>
 </footer>
 <%- include ('./partials/footer.ejs') %>

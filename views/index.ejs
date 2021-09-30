@@ -1,7 +1,7 @@
 <%- include('./partials/header.ejs') %>
-    <h1>Food with Friends!</h1>
+<button><a href="/recipes/new">Add a New Recipe</a></button>    
+<h1>Food with Friends!</h1>
     <h3>Look what's in your pantry!</h3>
-    
     <ul>
     <% for (let i =0; i < recipes.length; i++) { %>
         
@@ -11,6 +11,5 @@
         
         <% } %>
     </ul>
-<a href="/recipes/new">Add a New Recipe</a>
-<a href="/recipes/public">Visit the Public Pantry</a>
+
 <%- include ('./partials/footer.ejs') %>
