@@ -5,16 +5,24 @@
 <ul>
     <p>Ingredients:</p>
     <div class="ingredient-check">
-        <input class="ingredient-check-input" type="checkbox" value="" id="flexCheckDefault">
         <label class="ingredient-check-label" for="flexCheckDefault">
-            <%=recipe.ingredients%>
+           <% for(i=0; i<recipe.ingredients.length; i++) { %>
+                <li>
+                    <input class="ingredient-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <%=recipe.ingredients[i]%>
+                </li>
+            <% }%>
         </label>
       </div>
       <p>Directions:</p>
       <div class="direction-check">
-        <input class="direction-check-input" type="checkbox" value="" id="flexCheckDefault">
         <label class="direction-check-label" for="flexCheckDefault">
-            <%=recipe.directions%>
+            <% for(i=0; i<recipe.directions.length; i++) { %>
+                <li>
+                    <input class="direction-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <%=recipe.directions[i]%>
+                </li>
+            <% }%>          
         </label>
       </div>
     <li>Reference Link: <a href=""><%=recipe.link%></a></li>
