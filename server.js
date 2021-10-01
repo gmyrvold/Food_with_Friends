@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const methodOverride = require('method-override')
 const session = require('express-session')
+const PORT = process.env.PORT || 3000
 const Recipe = require('./models/recipes')
 require('dotenv').config();
 
@@ -59,8 +60,6 @@ app.use('/recipes', recipeController)
 const userController = require('./controllers/usercontroller')
 app.use('/users', userController)
 
-app.listen(process.env.PORT, () => {
-    console.log(`Server is listening on PORT: ${process.env.PORT}`)
+app.listen(PORT, () => {
+    console.log(`Server is listening on PORT: ${PORT}`)
   })
-
-//file change

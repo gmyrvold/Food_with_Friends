@@ -1,21 +1,45 @@
 <%- include('./partials/header.ejs') %>
-    <h2><%=recipe.name%></h2>
+<script src="jquery.js"></script>
+<script> 
+    $(function(){
+    $(".ingredient").load("show.ejs"); 
+    });
+</script> 
+<div class="index">    
+<h2><%=recipe.name%></h2>
     <h3>Serves: <%=recipe.qty%></h3>
 <ul>
-    <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-        <label class="form-check-label" for="flexCheckDefault">
-            Ingredients: <%=recipe.ingredients%>
+    <p>Ingredients:</p>
+    <div class="ingredient-check">
+        <label class="ingredient-check-label" for="flexCheckDefault">
+           <% for(i=0; i<recipe.ingredients.length; i++) { %>
+                <li>
+                    <input class="ingredient-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <%=recipe.ingredients[i]%>
+                </li>
+            <% }%>
         </label>
       </div>
-    <li>Directions: <%=recipe.directions%></li>
+
+      <p>Directions:</p>
+      <div class="direction-check">
+        <label class="direction-check-label" for="flexCheckDefault">
+            <% for(i=0; i<recipe.directions.length; i++) { %>
+                <li>
+                    <input class="direction-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <%=recipe.directions[i]%>
+                </li>
+            <% }%>          
+        </label>
+      </div>
+
     <li>Reference Link: <a href=""><%=recipe.link%></a></li>
 </ul>
 <img src="<%=recipe.img%>">
 
 <footer>
     
-    <button><a href="/recipes/<%=recipe.id%>/edit">Edit this recipe</a></button>
+    <button class="edit"><a href="/recipes/<%=recipe.id%>/edit">Edit this recipe</a></button>
 
     <form action="/recipes/<%= recipe.id%>?_method=DELETE" method="POST">
         <input type="submit" value="Delete">
@@ -26,4 +50,5 @@
         <input type="submit" value="Share">
     </form>
 </footer>
+</div>
 <%- include ('./partials/footer.ejs') %>

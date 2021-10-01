@@ -2,19 +2,40 @@
     <h2><%=recipe.name%></h2>
     <h3>Serves: <%=recipe.qty%></h3>
 <ul>
-    <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-        <label class="form-check-label" for="flexCheckDefault">
-            Ingredients: <%=recipe.ingredients%>
+    <p>Ingredients:</p>
+    <div class="ingredient-check">
+        <input class="ingredient-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="ingredient-check-label" for="flexCheckDefault">
+            <%=recipe.ingredients%>
         </label>
       </div>
-    <li>Directions: <%=recipe.directions%></li>
+      <p>Directions:</p>
+      <div class="direction-check">
+        <input class="direction-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="direction-check-label" for="flexCheckDefault">
+            <%=recipe.directions%>
+        </label>
+      </div>
     <li>Reference Link: <a href=""><%=recipe.link%></a></li>
 </ul>
 <img src="<%=recipe.img%>">
-<footer>
+
+<div>
     Tried this recipe out? Tell us your thoughts!
-    <input type="text" value="comment here">
+    <input class='comment' type="text" value="comment here">
     <button class="post"> Post </button>
-</footer>
+    <script>
+        let postButton = document.querySelector(".post")
+        postButton.addEventListener("click", handleClickEvent)
+        function handleClickEvent() {
+            const commentCreate = document.createElement('p')
+            commentCreate.innerText = document.querySelector('.comment').value 
+            document.querySelector('.commentSection').append(commentCreate)
+        }
+    </script>    
+</div>
+
+<div class="commentSection">
+   
+</div>
 <%- include ('./partials/footer.ejs') %>

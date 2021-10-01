@@ -1,15 +1,16 @@
-<%- include('./partials/header.ejs') %>
-<button><a href="/recipes/new">Add a New Recipe</a></button>    
-<h1>Food with Friends!</h1>
+<%- include('./partials/header.ejs') %>  
+<h1><strong> Food with Friends</strong></h1>
     <h3>Look what's in your pantry!</h3>
     <ul>
-    <% for (let i =0; i < recipes.length; i++) { %>
+   <div class="index">
+        <% for (let i =0; i < recipes.length; i++) { %>
         
             <li>
                 <button><a href="/recipes/<%=recipes[i].id%>"><%=recipes[i].name%></a></button>
             </li>
         
         <% } %>
+    </div>
     </ul>
-
+<button class="add"><a href="/recipes/new">Add a New Recipe</a></button>  
 <%- include ('./partials/footer.ejs') %>

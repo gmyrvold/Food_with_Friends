@@ -11,7 +11,6 @@ const authRequired = (req, res, next) => {
     }
   }
 
-
 router.get('/', (req,res) => {
     Recipe.find({}, (err, allRecipes) => {
         res.render('index.ejs', {
@@ -49,16 +48,16 @@ router.get('/seed', async (req, res) => {
     const newRecipes =
         [{
             name: 'Tomato Soup',
-            ingredients: 'Tomatoes',
-            directions: 'Cook tomatoes',
+            ingredients: ['Tomatoes'],
+            directions: ['Cook tomatoes'],
             img: '/images/TomatoSoup.jpeg',
             link: 'https://www.youtube.com/watch?v=MkULY-TuRz0',
             qty: 5,
             publicRecipe: true
         },{
             name: 'Chicken Noodle Soup',
-            ingredients: 'chicken, noodle, chicken stock, carrots, celery',
-            directions: 'add vegetables until soft, add broth and cook with chicken',
+            ingredients: ['chicken', 'noodle', 'chicken stock', 'carrots', 'celery'],
+            directions: ['add vegetables until soft', 'add broth and cook with chicken'],
             img: '/images/ChickenNoodleSoup.jpeg',
             link: 'https://www.youtube.com/watch?v=MkULY-TuRz0',
             qty: 5,
@@ -95,10 +94,6 @@ router.get('/public/:id', (req,res)=> {
     Recipe.findById(req.params.id, (error, foundRecipe) => {
         res.render('publicShow.ejs', { recipe: foundRecipe })
       })
-    //   let postButton = document.querySelector(".post")
-    // postButton.addEventListener("click", handleClickEvent)
-    // function handleClickEvent(event) {
-    //     body.style.h1 = event.target.dataset.color;}
     })
 
 router.delete('/:id', (req,res) => {

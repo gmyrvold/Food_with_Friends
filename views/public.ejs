@@ -1,5 +1,5 @@
 <%- include('./partials/header.ejs') %>
-<button><a href="/recipes">Back to your Recipes</a></button>
+
 <h1>Food with Friends!</h1>
 <h3>Make new friends and try new things!</h3>
 
@@ -7,7 +7,7 @@
         
    <ul>
         <li>
-            <button><a href="/recipes/<%=recipes[i].id%>"><%=recipes[i].name%></a></button>
+            <button><a href="/recipes/public/<%=recipes[i].id%>"><%=recipes[i].name%></a></button>
         </li>
     </ul>
 

@@ -3,8 +3,20 @@
 
     <form action="/recipes/<%=recipe.id%>?_method=PUT" method="POST">
         Name: <input type="text" name="name" value="<%=recipe.name%>"> <br/>
-        Ingredients: <input type="text" name="ingredients"value="<%=recipe.ingredients%>"> <br/>
-        Directions: <input type="text" name="directions"value="<%=recipe.directions%>"> <br/>
+
+        Ingredients: <br/>
+       <% for (i = 0; i < recipe.ingredients.length; i++ ){ %>
+          <input type="text" name="ingredients"value="<%=recipe.ingredients[i]%>"> 
+        <%  } %> 
+       </br>
+
+        Directions: <br/>
+        <% for (i = 0; i < recipe.ingredients.length; i++ ){ %>
+            <input type="text" name="directions"value="<%=recipe.directions[i]%>"> 
+          <%  } %> 
+         </br>
+
+
         Image: <input type="text" name="img"value="<%=recipe.img%>"> <br/>
         Link: <input type="text" name="link"value="<%=recipe.link%>"> <br/>
         How many does this serve?: <input type="text" name="qty"value="<%=recipe.qty%>"> <br/>
