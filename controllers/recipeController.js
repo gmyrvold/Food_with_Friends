@@ -62,6 +62,30 @@ router.get('/seed', async (req, res) => {
             link: 'https://www.youtube.com/watch?v=MkULY-TuRz0',
             qty: 5,
             publicRecipe: false
+        },{
+            name: 'Mac and Cheese',
+            ingredients: ['1lb elbow pasta', '1/2 cup butter', '1/2 cup flour', '2 1/2 cups half and half', '4 cups sharp cheddar cheese', '2 cups gruyere cheese', '1/2 Tbs salt'],
+            directions: ['Preheat oven to 325 degrees F and grease a 3 qt baking dish (9x13").  Set aside.', 'Bring a large pot of salted water to a boil and cook pasta', 'Melt butter and add flour and half and half', 'Remove from heat and add cheeses', 'Add both pasta and cheese mix to baking dish, bake for 15 mins'],
+            img: '/images/MacAndCheese.jpeg',
+            link: 'https://www.youtube.com/watch?v=snsEjQKO-s8',
+            qty: 8,
+            publicRecipe: false
+        },{
+            name: 'Chicken Parmesan',
+            ingredients: ['2 TBS oil', '2 chicken breasts', '1 egg', '1 cup panko bread crumbs', '1/2 cup parmesan cheese', '1 tsp oregano', '1 cup marinara', '1 1/2 cups mozzarella'],
+            directions: ['Preheat oven to 400 degrees', 'cut chicken in halves, flatten with a rolling pin', 'seperately mix panko bread crumbs, parmesan and spices', 'bread the chicken and bake for 15 mins on both sides', 'top with marinara and mozzarella'],
+            img: '/images/ChickenParmesan.jpeg',
+            link: 'https://www.youtube.com/watch?v=MkULY-TuRz0',
+            qty: 8,
+            publicRecipe: true
+        }, {
+            name: 'Chicken Pesto Pasta',
+            ingredients: ['1 TBS oil', '1 1/4 lbs chicken breasts', '1 lb penne pasta', '1 jar pesto', '1 cup plain greek yogurt', '10 oz frozen spinach', '2 pints cherry tomatoes', '1 cup mozzarella'],
+            directions: ['preheat oven to 375 degrees', 'add chicken and oil to a pan and cook for 4 mins', 'boil water in a pot and add pasta until al dente', 'whisk together pesto and yogurt. Once combined add spinach and add to the pasta', 'add chicken and tomatoes and put everything in a baking dish', 'top with mozzarella and bake for 20-25 mins'],
+            img: '/images/PestoPasta.jpeg',
+            link: 'https://www.youtube.com/watch?v=MkULY-TuRz0',
+            qty: 6,
+            publicRecipe: false
         }]
     console.log(newRecipes)
     try {
