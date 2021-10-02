@@ -1,4 +1,5 @@
 # Food_with_Friends
+https://f00dwithfriends.herokuapp.com/recipes
 
 Welcome to Food with Friends!
 This is both a private and public server, and you as the user are free to use it however you'd like!
